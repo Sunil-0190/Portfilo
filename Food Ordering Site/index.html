@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyOnlineMeals.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* Navbar */
+        #navbar {
+            background: #333;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0 1rem;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Home Section */
+        #home {
+            height: 100vh;
+            background: url('../.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        #home .container {
+            color: #333;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        #services {
+            padding: 4rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .service-box {
+            background: #f4f4f4;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .service-box img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        /* Clients Section */
+        #clients {
+            background: #333;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .client-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+            padding: 1rem;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn {
+            background: #f4511e;
+            color: rgb(255, 255, 255);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #333;
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            #home h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-box {
+                margin: 1rem 0;
+            }
+
+            .client-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+
+            #home h1 {
+                font-size: 2rem;
+            }
+
+            .client-logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <h1 class="logo">MyOnlineMeals</h1>
+                <button class="menu-btn">☰</button>
+                <ol class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Our Clients</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <h1>Welcome to MyOnlineMeal</h1>
+            <p>Find nutritious options that don't compromise on taste</p>
+            <p>We believe healthy food can be delicious too</p>
+            <a href="Ordering_page.html" class="btn">Order now</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-box">
+                    <img src="https://th.bing.com/th?id=OIP.cTeXuwxDltd31eJriV7tKAHaFM&w=298&h=209&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Food Ordering" />
+                    <h3>Food Ordering</h3>
+                    <p>We make food ordering simple and enjoyable. Whether you're dining in, taking out, or having it delivered.</p>
+                </div>
+                <div class="service-box">
+                    <img src="https://th.bing.com/th/id/OIP.u1OUWWRwtR3pLwQ2IgcqRwHaEw?w=259&h=180&c=7&r=0&o=5&pid=1.7" alt="Food Catering" />
+                    <h3>Food Catering</h3>
+                    <p>We believe that every event deserves delicious food that leaves a lasting impression.</p>
+                </div>
+                
+                <div class="service-box">
+                    <img src="https://th.bing.com/th/id/OIP.9C74BzslmPhnUKShZERU7gHaFj?w=274&h=182&c=7&r=0&o=5&pid=1.7" alt="Bulk Ordering" />
+                    <h3>Bulk Ordering</h3><br><hr>
+                    <p>We specialize in bulk ordering to help you provide delicious meals for any occasion.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="clients">
+        <div class="container">
+            <h2>Our Clients</h2>
+            <div class="clients-grid">
+                
+                <img src="https://th.bing.com/th/id/OIP.ObAraorJjrQuqU8hiJvJTgHaEK?w=212&h=180&c=7&r=0&o=5&pid=1.7" alt="Client 2" class="client-logo">
+                <img src="https://th.bing.com/th?id=OIP.L3hECHubjXFR7l4nVAX3XQHaE_&w=304&h=205&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Client 3" class="client-logo">
+                <img src="https://th.bing.com/th?id=OIP.TF99Kgr99iiSSzJo8K5etwHaDj&w=349&h=168&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Client 4" class="client-logo">
+                <img src="https://static.vecteezy.com/system/resources/previews/026/783/205/original/kfc-logo-editorial-free-vector.jpg" alt="Client 1" class="client-logo">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="submit-form" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" name="phone" id="phone" placeholder="Enter Your Phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="registration">Registration:</label>
+                    <input type="registration" name="registration" id="registration" placeholder="Enter Your Regi. number" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 MyOnlineMeals.com. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Form submission
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzmvls7_KE6DH9ZJn_W-Z42uuDS4a_UgHdbHOhb4iR0gRKpo9bwWdt_FFDd8PKxQK_jIg/exec'
+        const form = document.getElementById('submit-form')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Thank you! Your form is submitted successfully.");
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("There was an error submitting your form. Please try again.");
+            });
+        });
+    </script>
+</body>
+</html>
